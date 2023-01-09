@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Room</title>
+</head>
+<body>
+<h1>Welcome to the Room</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8">
+        var socket = io();
+    {#   join the socket.io room by sending a message to the room socket#}
+        socket.emit('join', {room: '{{ room_id }}'});
+    {#   listen for new player names and display them#}
+        socket.on('new_player', function(msg) {
+            console.log(msg);
+        });
+    </script>
+</body>
+</html>
